@@ -1,10 +1,9 @@
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
-use uuid::Uuid;
 
 #[derive(Debug, Serialize, FromRow, Clone)]
 pub struct Todo {
-    pub id: Uuid,
+    pub id: i64,
     pub description: String,
     pub completed: bool,
 }

@@ -9,7 +9,6 @@ use axum::{
     response::Json,
 };
 use sqlx::SqlitePool;
-use uuid::Uuid;
 
 pub async fn get_todos(State(pool): State<SqlitePool>) -> Result<Json<Vec<Todo>>, AppError> {
     let todos = db::get_all_todos_db(&pool).await?;
@@ -25,9 +24,9 @@ pub async fn create_todo(
 }
 
 pub async fn get_todo_by_id(
-    State(pool) : State<SqlitePool>,
-    Path(id) : Path<Uuid>
-) -> Result<Json<Todo>,AppError>{
-    let todo = db::get_todo_by_id_db(&pool,id).await?;
+    State(pool): State<SqlitePool>,
+    Path(id): Path<i64>,
+) -> Result<Json<Todo>, AppError> {
+    let todo = db::get_todo_by_id_db(&pool, id).await?;
     Ok(Json(todo))
 }

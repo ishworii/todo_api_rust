@@ -1,5 +1,5 @@
 use crate::handlers;
-use axum::{routing::{get,post},Router};
+use axum::{routing::get,Router};
 use sqlx::SqlitePool;
 
 pub fn create_router(db_pool : SqlitePool) -> Router{
