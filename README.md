@@ -1,21 +1,17 @@
-```markdown
 # Blazingly Fast REST API in Rust
-
-![Rust Version](https://img.shields.io/badge/rust-1.78.0-orange.svg)
+![Rust Version](https://img.shields.io/badge/rust-1.87.0-orange.svg)
 ![Framework](https://img.shields.io/badge/framework-Axum-blue.svg)
 ![Database](https://img.shields.io/badge/database-SQLx_/_SQLite-green.svg)
-![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue)
+![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)
 
 This project is a high-performance, asynchronous REST API built in Rust using Axum and SQLx. It delivers a persistent To-Do list service and is optimized for clarity, scalability, and performance. 
 
 The primary goal was to benchmark Rust against FastAPI under high-concurrency conditions and showcase the real-world benefits of Rust's async runtime, compile-time safety, and memory efficiency.
 
----
 
 ## Project Structure
 
 ```
-
 .
 ├── Cargo.toml
 ├── .env              # SQLite connection string
@@ -31,7 +27,6 @@ The primary goal was to benchmark Rust against FastAPI under high-concurrency co
 
 ````
 
----
 
 ## Features
 
@@ -42,7 +37,6 @@ The primary goal was to benchmark Rust against FastAPI under high-concurrency co
 - Custom error handling
 - High throughput and minimal latency under load
 
----
 
 ## Getting Started
 
@@ -50,10 +44,9 @@ The primary goal was to benchmark Rust against FastAPI under high-concurrency co
 
 - Rust toolchain (install via [rustup.rs](https://rustup.rs))
 - `sqlx-cli` for migrations:  
-  ```bash
-  cargo install sqlx-cli
-````
-
+```bash
+cargo install sqlx-cli
+```
 ### Installation
 
 1. Clone the repository:
@@ -84,7 +77,7 @@ The primary goal was to benchmark Rust against FastAPI under high-concurrency co
 
    The server will be available at `http://127.0.0.1:3000`.
 
----
+
 
 ## Benchmark Results
 
@@ -101,7 +94,7 @@ Benchmarks were conducted using [`oha`](https://github.com/hatoo/oha) with 50 co
 
 **Conclusion**: The Rust implementation handled 12 times more requests with significantly lower latency, thanks to its compiled performance model, non-blocking async runtime, and efficient resource management.
 
----
+
 
 ### GET `/todos/5` (Read-heavy, single-record benchmark)
 
@@ -113,7 +106,7 @@ Benchmarks were conducted using [`oha`](https://github.com/hatoo/oha) with 50 co
 
 **Conclusion**: Rust handled 10 times more requests per second with lower and more predictable latency, even in read scenarios.
 
----
+
 
 ### GET `/todos` (Fetch all records, \~236k entries)
 
@@ -125,7 +118,7 @@ Benchmarks were conducted using [`oha`](https://github.com/hatoo/oha) with 50 co
 
 **Conclusion**: This test stressed the server with large payloads. The Rust server remained stable, consistently serving 33 MB JSON responses without crashes or degradation, proving its reliability under extreme loads.
 
----
+
 
 ## Lessons Learned
 
@@ -134,13 +127,13 @@ Benchmarks were conducted using [`oha`](https://github.com/hatoo/oha) with 50 co
 * SQLite with `sqlx` provides a safe and reliable storage layer, with strong compile-time guarantees.
 * Memory safety and absence of garbage collection give Rust more predictable latency under load.
 
----
+
 
 ## Conclusion
 
 This project demonstrates that Rust is a compelling option for building backend APIs where performance and reliability are critical. While Python frameworks like FastAPI offer excellent developer experience, Rust provides a clear edge in raw throughput, latency, and stability.
 
----
+
 
 ## Future Enhancements
 
@@ -150,13 +143,7 @@ This project demonstrates that Rust is a compelling option for building backend 
 * Add a WebSocket endpoint for real-time updates
 * Deploy using Docker and set up CI/CD pipelines
 
----
 
-## License
 
-Licensed under either of:
-
-* MIT License
-* Apache License, Version 2.0
 
 
